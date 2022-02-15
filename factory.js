@@ -19,7 +19,7 @@ function getResultById() {
   let timeOut = 0;
   let countIn = 0;
   let countOut = 0;
-  if (validData.length > 1 && validData[0].type === "in") {
+  if (validData.length > 1) {
     validData.forEach((item, index, arr) => {
       if (item.type === "in" && arr[index + 1].type === "out") {
         timeIn += Date.parse(item.date);
