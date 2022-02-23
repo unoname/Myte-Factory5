@@ -33,13 +33,13 @@ function getResultById() {
     let time = ((timeOut - timeIn) / (1000 * 60 * 60)).toFixed(1);
     obj.id = validData[0].id;
     obj.time = time;
-    let timeVisits = validData.some(
+    let SuspiciousVisits = validData.some(
       e =>
-        Number(e["date"].split("T")[1].split(":")[0]) < 23 &&
-        Number(e["date"].split("T")[1].split(":")[0]) > 6
+        Number(e["date"].split("T")[1].split(":")[0]) > 23 &&
+        Number(e["date"].split("T")[1].split(":")[0]) < 6
     );
     obj.hasSuspiciousVisits =
-      (countIn - countOut === 0 || countIn - countOut > 0) && timeVisits
+      (countIn - countOut === 0 || countIn - countOut > 0) && !SuspiciousVisits
         ? false
         : true;
   } else {
