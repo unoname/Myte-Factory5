@@ -35,7 +35,7 @@ function getResultById() {
     obj.time = time;
     let SuspiciousVisits = validData.some(
       e =>
-        Number(e["date"].split("T")[1].split(":")[0]) > 23 &&
+        Number(e["date"].split("T")[1].split(":")[0]) > 23 ||
         Number(e["date"].split("T")[1].split(":")[0]) < 6
     );
     obj.hasSuspiciousVisits =
